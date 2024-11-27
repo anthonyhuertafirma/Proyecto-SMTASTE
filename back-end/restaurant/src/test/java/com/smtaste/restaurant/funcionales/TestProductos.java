@@ -35,25 +35,27 @@ public class TestProductos {
     }
 
     @Test
-    public void testCarritoProductos(){
+    public void testCarritoProductos() {
         WebElement buttonProducto1 = driver.findElement(By.xpath("//*[@id=\"2\"]/div[2]/button"));
         WebElement buttonProducto2 = driver.findElement(By.xpath("//*[@id=\"3\"]/div[2]/button"));
 
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", buttonProducto1);
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(buttonProducto1));
-        buttonProducto1.click();
+
+        js.executeScript("arguments[0].click();", buttonProducto1);
 
         js.executeScript("arguments[0].scrollIntoView(true);", buttonProducto2);
         wait.until(ExpectedConditions.elementToBeClickable(buttonProducto2));
-        buttonProducto2.click();
+        js.executeScript("arguments[0].click();", buttonProducto2);
 
         driver.get("http://localhost:63342/front-end/Carro%20de%20Compras.html");
         WebElement cartItems = driver.findElement(By.xpath("//*[@id=\"cart-items\"]"));
         List<WebElement> items = cartItems.findElements(By.className("cart-item"));
 
-        assertFalse(items.isEmpty(), "El contenedor no tiene elementos de clase 'box'");
+        assertFalse(items.isEmpty(), "El contenedor no tiene elementos de clase 'cart-item'");
     }
 
     @AfterEach
