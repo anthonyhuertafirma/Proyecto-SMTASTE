@@ -11,3 +11,5 @@ así como administrar el menú al ingresar como empleado de la cafetería; para 
 de su usabilidad entre los estudiantes y profesores y demás personal de la Universidad 
 Nacional Mayor de San Marcos. 
 
+## FUNCIONALIDADES PRINCIPALES
+![Página Principal](principal.png)
