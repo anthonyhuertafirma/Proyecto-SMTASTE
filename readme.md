@@ -2,12 +2,12 @@
 GRUPO 6
 
 # INTEGRANTES
-Fredy Anthony Huerta Firma
-Joseph Rodolfo Flores Hilario
-Jhordan Brayan Medina Montoya
-Carlos Antonio Romero Llamoca
-Salazar Herrera Oscar Miguel
-Guerra Camana Pablo Francisco
+- Fredy Anthony Huerta Firma
+- Joseph Rodolfo Flores Hilario
+- Jhordan Brayan Medina Montoya
+- Carlos Antonio Romero Llamoca
+- Salazar Herrera Oscar Miguel
+- Guerra Camana Pablo Francisco
 
 # NOMBRE DEL PROYECTO
 SM-TASTE
