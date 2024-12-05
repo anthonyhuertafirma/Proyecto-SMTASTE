@@ -1,14 +1,11 @@
 package com.smtaste.restaurant.controller;
 
-import com.smtaste.restaurant.security.auth.AuthRequest;
+import com.smtaste.restaurant.model.Usuario;
 import com.smtaste.restaurant.service.UsuarioService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +20,19 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @PostMapping("/login")
-    public ResponseEntity<Map<String, String>> getUsernameByLogin(@RequestBody AuthRequest authRequest) {
-        log.info("Intento de inicio de sesion: {}", authRequest.toString());
-        String usuarioNombre = usuarioService.getUsuario(authRequest);
+    @PostMapping
+    public ResponseEntity<Usuario> addUsuario(@RequestBody Usuario usuario) {
+        log.info("Agregando nuevo usuario con email: {}", usuario.getEmail());
+        Usuario newUsuario = usuarioService.saveUsuario(usuario);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newUsuario);
+    }
+
+    @GetMapping
+    public ResponseEntity<Map<String, String>> getUsernameByLogin(@RequestParam String email, @RequestParam String contrasena) {
+        log.info("Intento de inicio de sesión con email: {}", email);
+
+        String usuarioNombre = usuarioService.getUsuario(email, contrasena);
         Map<String, String> response = new HashMap<>();
-
-
 
         if (usuarioNombre == null) {
             response.put("message", "Usuario no encontrado");
