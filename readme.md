@@ -115,21 +115,21 @@ pipeline {
     }
 }
 
-Explicación del Pipeline en Jenkins:
-Agent and Tools:
-agent any: Indica que el pipeline puede ejecutarse en cualquier agente disponible.
-tools: Define las herramientas necesarias para ejecutar el pipeline, en este caso, el JDK y Maven.
-Environment Variables:
+## Explicación del Pipeline en Jenkins:
+### Agent and Tools:
+- agent any: Indica que el pipeline puede ejecutarse en cualquier agente disponible.
+- tools: Define las herramientas necesarias para ejecutar el pipeline, en este caso, el JDK y Maven.
+- Environment Variables:
 Se configuran variables de entorno como SCANNER_HOME para SonarQube y ZAP_HOME para OWASP ZAP.
-Stages: El pipeline se divide en diferentes etapas:
-Git Checkout: Clona el repositorio desde GitHub.
-Cambio de Rama a Master: Asegura que se trabaje con la rama principal (master).
-Build with Maven: Ejecuta mvn clean compile para construir el proyecto.
-Test Unit-Func: Ejecuta las pruebas unitarias y funcionales con Maven.
-OWASP ZAP Security Scan: Realiza un escaneo de seguridad en la API utilizando OWASP ZAP.
-JMeter Performance Test: Ejecuta las pruebas de rendimiento con JMeter.
-SonarQube Analysis: Ejecuta el análisis estático de SonarQube para evaluar la calidad del código.
-Gestión de Issues
-Registro de Defectos: Los defectos se registran en GitHub Issues.
-División de Esfuerzos: Usando Trello, el trabajo se organiza en tareas con estimaciones de tiempo, responsables y etiquetas.
+- Stages: El pipeline se divide en diferentes etapas:
+### Git Checkout: Clona el repositorio desde GitHub.
+### Cambio de Rama a Master: Asegura que se trabaje con la rama principal (master).
+### Build with Maven: Ejecuta mvn clean compile para construir el proyecto.
+### Test Unit-Func: Ejecuta las pruebas unitarias y funcionales con Maven.
+### OWASP ZAP Security Scan: Realiza un escaneo de seguridad en la API utilizando OWASP ZAP.
+### JMeter Performance Test: Ejecuta las pruebas de rendimiento con JMeter.
+### SonarQube Analysis: Ejecuta el análisis estático de SonarQube para evaluar la calidad del código.
+## Gestión de Issues
+### Registro de Defectos: Los defectos se registran en GitHub Issues.
+### División de Esfuerzos: Usando Trello, el trabajo se organiza en tareas con estimaciones de tiempo, responsables y etiquetas.
 
